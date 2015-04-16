@@ -1,4 +1,3 @@
-#coding: UTF-8
 module Kinopoisk
   class Search
     attr_accessor :query, :url

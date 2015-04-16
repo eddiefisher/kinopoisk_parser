@@ -1,4 +1,3 @@
-#coding: UTF-8
 module Kinopoisk
   class Person
     attr_accessor :id, :url, :name
@@ -10,7 +9,7 @@ module Kinopoisk
     #
     # Request to kinopoisk is made once and on the first access to a remote data.
     #
-    def initialize(id, name=nil)
+    def initialize(id, name = nil)
       @id   = id
       @url  = "http://www.kinopoisk.ru/name/#{id}/"
       @name = name

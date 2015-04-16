@@ -1,4 +1,3 @@
-#coding: UTF-8
 require 'spec_helper'
 
 describe Kinopoisk::Person, vcr: { cassette_name: 'people' } do
@@ -17,8 +16,8 @@ describe Kinopoisk::Person, vcr: { cassette_name: 'people' } do
   it { person.name.should eq('Декстер Флетчер') }
   it { person.birthplace.should eq('Лондон, Англия, Великобритания') }
   it { person.first_movie.should eq('1976') }
-  it { person.last_movie.should eq('2014') }
+  it { person.last_movie.should eq('2015') }
   it { person.birthdate.should eq('1966-01-31') }
-  it { person.total_movies.should eq(93) }
+  it { person.total_movies.should eq(95) }
   it { person.height.should eq('1.68 м') }
 end

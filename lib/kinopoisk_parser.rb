@@ -4,6 +4,7 @@ require 'kinopoisk/movie'
 require 'kinopoisk/search'
 require 'kinopoisk/person'
 require 'kinopoisk/trailer'
+require 'kinopoisk/wallpapers'
 
 module Kinopoisk
   SEARCH_URL = "http://www.kinopoisk.ru/index.php?kp_query="

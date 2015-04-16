@@ -1,4 +1,3 @@
-#coding: UTF-8
 require 'spec_helper'
 
 describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
@@ -9,11 +8,11 @@ describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
   let(:knights)       { Kinopoisk::Movie.new 649576 }
   let(:druginniki)    { Kinopoisk::Movie.new 462455 }
   let(:encounter)     { Kinopoisk::Movie.new 687886 }
-  let(:one_plus_one)  { Kinopoisk::Movie.new 535341 }
+  let(:one_plus_one)  { Kinopoisk::Movie.new 885533 }
 
   it { expect(dexter.default_trailer_id).to eq 82610 }
   it { expect(dexter.url).to eq('http://www.kinopoisk.ru/film/277537/') }
-  it { expect(dexter.title).to eq('Правосудие Декстера') }
+  it { expect(dexter.title).to eq('Декстер') }
   it { dexter.title_en.should eq('Dexter') }
   it { dexter.countries.should eq(['США']) }
   it { dexter.year.should eq(2006) }
@@ -22,7 +21,7 @@ describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
   it { dexter.producers.map(&:name).should eq(['Сара Коллетон','Джон Голдвин','Роберт Ллойд Льюис']) }
   it { dexter.art_directors.map(&:name).should eq(['Джессика Кендер','Энтони Коули','Эрик Уейлер']) }
   it { dexter.operators.map(&:name).should eq(['Ромео Тироне','Джеф Джёр','Мартин Дж. Лэйтон']) }
-  it { dexter.editors.map(&:name).should eq(['Луис Ф. Циоффи','Стюарт Шилл','Кит Хендерсон']) }
+  it { dexter.editors.map(&:name).should eq(["Луис Циоффи", "Стюарт Шилл", "Кит Хендерсон"]) }
   it { dexter.writers.map(&:name).should eq(['Скотт Бак', 'Карен Кэмпбелл', 'Дэниэл Церон']) }
   it { dexter.actors.map(&:name).should include('Майкл С. Холл', 'Дженнифер Карпентер') }
   it { dexter.genres.should eq(['триллер','драма','криминал', 'детектив']) }
@@ -33,7 +32,7 @@ describe Kinopoisk::Movie, vcr: { cassette_name: 'movies' } do
   it { dexter.premiere_ru.should eq('3 ноября 2008') }
   it { dexter.composers.map(&:name).should eq(['Дэниэл Лихт']) }
   it { dexter.imdb_rating_count.should be_a(Integer) }
-  it { expect(dexter.imdb_rating).to be 9.0 }
+  it { expect(dexter.imdb_rating).to be 8.9 }
   it { dexter.rating_count.should be_a(Integer) }
   it { dexter.rating.should be_a(Float) }
   it { dexter.box_office_ru.should eq('') }

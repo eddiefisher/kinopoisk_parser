@@ -1,4 +1,3 @@
-#coding: UTF-8
 require 'spec_helper'
 
 describe Kinopoisk::Trailer, vcr: { cassette_name: 'trailers' } do

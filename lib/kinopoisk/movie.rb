@@ -1,4 +1,3 @@
-#coding: UTF-8
 module Kinopoisk
   class Movie
     attr_accessor :id, :url, :title
@@ -13,13 +12,13 @@ module Kinopoisk
     # Initializing by title would send a search request and return first match.
     # Movie page request is made once and on the first access to a remote data.
     #
-    def initialize(input, title=nil)
+    def initialize(input, title = nil)
       @id    = input.is_a?(String) ? find_by_title(input) : input
       @url   = "http://www.kinopoisk.ru/film/#{id}/"
       @title = title
     end
 
-    # Returns an array of strings containing actor names
+    # Returns an array of Person object
     def actors
       actors_lists = doc.search '#actorList ul'
       actors_lists.any? ? links_to_people(actors_lists.first.search 'li a') : []
@@ -117,6 +116,10 @@ module Kinopoisk
       search_by_itemprop('ratingCount').to_i
     end
 
+    def wallpapers
+      wallpaper.images
+    end
+
     # Returns an array of strings containing director names
     def directors
       links_to_people doc.search("[itemprop='director']/a")
@@ -171,6 +174,10 @@ module Kinopoisk
 
     def doc
       @doc ||= Kinopoisk.parse url
+    end
+
+    def wallpaper
+      Kinopoisk::Wallpapers.new(id)
     end
 
     # Kinopoisk has defined first=yes param to redirect to first result
