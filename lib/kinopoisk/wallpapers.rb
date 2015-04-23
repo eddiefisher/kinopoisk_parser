@@ -15,7 +15,6 @@ module Kinopoisk
       thumbnail_urls.map do |url|
         url = image_url(url.attribute('href'))
         doc = get_content(url)
-        sleep(5)
         doc.css('#image').attribute('src')
       end
     end
