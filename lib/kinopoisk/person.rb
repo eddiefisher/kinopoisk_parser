@@ -11,7 +11,7 @@ module Kinopoisk
     #
     def initialize(id, name = nil)
       @id   = id
-      @url  = "http://www.kinopoisk.ru/name/#{id}/"
+      @url  = "https://www.kinopoisk.ru/name/#{id}/"
       @name = name
     end
 

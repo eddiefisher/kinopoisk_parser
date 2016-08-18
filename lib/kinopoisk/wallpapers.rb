@@ -4,7 +4,7 @@ module Kinopoisk
 
     def initialize(id)
       @id = id
-      @url = "http://www.kinopoisk.ru/film/#{id}/stills/"
+      @url = "https://www.kinopoisk.ru/film/#{id}/stills/"
     end
 
     def thumbnail_urls
@@ -26,7 +26,7 @@ module Kinopoisk
     end
 
     def image_url(url)
-      "http://www.kinopoisk.ru#{url}"
+      "https://www.kinopoisk.ru#{url}"
     end
 
     def doc

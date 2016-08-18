@@ -15,7 +15,7 @@ module Kinopoisk
     def initialize(id, movie_id)
       @id       = id
       @movie_id = movie_id
-      @url   = "http://www.kinopoisk.ru/film/#{movie_id}/video/#{id}/"
+      @url   = "https://www.kinopoisk.ru/film/#{movie_id}/video/#{id}/"
       @title = title
     end
 

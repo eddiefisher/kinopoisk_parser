@@ -14,7 +14,7 @@ module Kinopoisk
     #
     def initialize(input, title = nil)
       @id    = input.is_a?(String) ? find_by_title(input) : input
-      @url   = "http://www.kinopoisk.ru/film/#{id}/"
+      @url   = "https://www.kinopoisk.ru/film/#{id}/"
       @title = title
     end
 
@@ -93,7 +93,7 @@ module Kinopoisk
     # Returns a url to a big sized poster
     def poster_big
       big_image = doc.search("a.popupBigImage").first
-      "http://www.kinopoisk.ru/images/film_big/#{@id}.jpg" if big_image && big_image.attr('href')
+      "https://www.kinopoisk.ru/images/film_big/#{@id}.jpg" if big_image && big_image.attr('href')
     end
 
     # Returns an integer length of the movie in minutes
@@ -183,7 +183,7 @@ module Kinopoisk
     # Kinopoisk has defined first=yes param to redirect to first result
     # Return its id from location header
     def find_by_title(title)
-      url = "http://www.kinopoisk.ru/index.php?level=7&from=forma&result=adv&m_act[from]=forma&m_act[what]=content&m_act[find]=#{URI.encode_www_form_component title}&first=yes"
+      url = "https://www.kinopoisk.ru/index.php?level=7&from=forma&result=adv&m_act[from]=forma&m_act[what]=content&m_act[find]=#{URI.encode_www_form_component title}&first=yes"
       Kinopoisk.fetch(url).headers['Location'].to_s.match(/\/(\d*)\/$/)[1]
     end
 
